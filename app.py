@@ -177,12 +177,7 @@ def main():
         perform_step(selected_personalities, current_persona_idx, response_list, issue, model)
 
     if five_steps_button:
-        for _ in range(5):
-            perform_step(selected_personalities, current_persona_idx, response_list, issue, model)
-
-
-    if five_steps_button:
-        for _ in range(5):
+        for _ in range(3):
             perform_step()
     if auto_approve and len(response_list) >= len(selected_personalities):
         sleep(1) 
