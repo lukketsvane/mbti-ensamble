@@ -1,0 +1,41 @@
+{
+  "Age": ["child", "teen", "young adult", "adult", "senior", "middle aged"],
+  "Orientation": ["heterosexual", "homosexual", "bisexual", "transgender", "cisgender"],
+  "MBTI Personality Types": {
+    "ISTJ": "Introverted, Sensing, Thinking, Judging",
+    "ISFJ": "Introverted, Sensing, Feeling, Judging",
+    "INFJ": "Introverted, Intuitive, Feeling, Judging",
+    "INTJ": "Introverted, Intuitive, Thinking, Judging",
+    "ISTP": "Introverted, Sensing, Thinking, Perceiving",
+    "ISFP": "Introverted, Sensing, Feeling, Perceiving",
+    "INFP": "Introverted, Intuitive, Feeling, Perceiving",
+    "INTP": "Introverted, Intuitive, Thinking, Perceiving",
+    "ESTP": "Extraverted, Sensing, Thinking, Perceiving",
+    "ESFP": "Extraverted, Sensing, Feeling, Perceiving",
+    "ENFP": "Extraverted, Intuitive, Feeling, Perceiving",
+    "ENTP": "Extraverted, Intuitive, Thinking, Perceiving",
+    "ESTJ": "Extraverted, Sensing, Thinking, Judging",
+    "ESFJ": "Extraverted, Sensing, Feeling, Judging",
+    "ENFJ": "Extraverted, Intuitive, Feeling, Judging",
+    "ENTJ": "Extraverted, Intuitive, Thinking, Judging"
+  },
+  "Socioeconomic Status": ["destitute", "struggling", "middle class", "affluent", "wealthy"],
+  "Geographic Origins": [
+    "North America", "South America", "Central America", "Caribbean", "Western Europe", "Eastern Europe", "Northern Europe", "Southern Europe", "Middle East", "North Africa", "West Africa", "East Africa", "Central Africa", "Southern Africa", "South Asia", "Southeast Asia", "East Asia", "Central Asia", "Australia", "New Zealand", "Pacific Islands", "Antarctica"
+  ],
+  "Cultural Background": [
+    "Sub-Saharan African", "North African", "Southern African", "East African", "West African", "Central African", "South Asian", "Southeast Asian", "East Asian", "Central Asian", "West Asian", "Caucasian", "Hispanic", "Latin American", "Native American", "Pacific Islander", "Aboriginal Australian", "Maori", "Middle Eastern", "Arabic", "Persian", "Turkish", "Slavic", "Baltic", "Scandinavian", "Western European", "Southern European", "Eastern European", "Jewish", "Caribbean", "Indigenous Central American", "Indigenous South American", "Eurasian", "Mixed"
+  ],
+  "Geographical Location": ["urban", "suburban", "rural", "coastal", "mountainous"],
+  "Health Status": ["healthy", "unhealthy", "fit", "unfit", "diet-conscious", "disabled"],
+  "Language": ["English", "Spanish", "Mandarin", "Hindi", "Arabic", "Other (pick relevant)"],
+  "Consumption": ["impulsive buyer", "planned buyer", "luxury buyer", "budget buyer", "anti-consumption", "minimalist"],
+  "Childhood": ["stable", "unstable", "privileged", "underprivileged", "isolated/neglected", "happy/warm"],
+  "Family": ["nuclear family", "single parent", "extended family", "childless", "widow", "single", "happy marriage", "unhappy marriage", "divorced"],
+  "Education": ["none", "primary school", "secondary school", "college/university", "graduate school", "trade/craft/specialty"],
+  "Employment": ["unemployed", "employed", "retired", "gig or part time", "homemaker", "underemployed"],
+  "Intellect": ["intelligent", "average", "below average"],
+  "Aspirations": ["career-oriented", "family-oriented", "wealth-oriented", "intellectually-oriented", "artistically-oriented"],
+  "Important Issues": ["social", "political", "environmental", "personal", "none"],
+  "Tolerance": ["radically intolerant", "moderatly intolerant", "moderately tolerant", "radically inclusive"]
+}
