@@ -38,6 +38,18 @@ def chatbot(messages, model, temperature=0.8):
     response = openai.ChatCompletion.create(model=model, messages=messages, temperature=temperature)
     return response['choices'][0]['message']['content']
 
+def perform_step(selected_personalities, current_persona_idx, response_list, issue, model):
+    next_persona = selected_personalities[current_persona_idx % len(selected_personalities)]
+    traits = get_persona_traits()[next_persona]
+    system_with_traits = open_file('system_persona_role.txt').replace('<<PERSONA>>', traits)
+    last_four_messages = response_list[-4:]
+    messages = [{'role': 'system', 'content': system_with_traits}, {'role': 'user', 'content': f"What are your thoughts on this proposed policy: {issue}?"}] + [{'role': 'assistant', 'content': msg.split(": ")[1]} for msg in last_four_messages]
+    response = chatbot(messages, model)
+    formatted_response = f"{next_persona}: {response}"
+    response_list.append(formatted_response)
+    st.session_state.response_list = response_list
+    st.session_state.current_persona_idx = (current_persona_idx + 1) % len(selected_personalities)
+
 def main():
     st.title("Automated Consensus")
     model = st.selectbox('Choose a model', ['gpt-3.5-turbo', 'gpt-4'], index=1)
@@ -46,9 +58,10 @@ def main():
 
     auto_approve = st.session_state.get('auto_approve', False)
 
-    col1, col2, col3, col4, col_space, col5 = st.columns([0.23, 0.23, 0.45, 0.08, 0.05, 0.15])
+    col1, col2, col2_5, col3, col4, col_space, col5 = st.columns([0.23, 0.23, 0.23, 0.22, 0.08, 0.05, 0.15])
     start_debate_button = col1.button("start debate")
     step_button = col2.button("perform step")
+    five_steps_button = col2_5.button("5 steps")
 
 
 
@@ -160,6 +173,17 @@ def main():
         st.session_state.response_list = response_list
         st.session_state.current_persona_idx = (current_persona_idx + 1) % len(selected_personalities)
 
+    if step_button or (auto_approve and len(response_list) >= len(selected_personalities)):
+        perform_step(selected_personalities, current_persona_idx, response_list, issue, model)
+
+    if five_steps_button:
+        for _ in range(5):
+            perform_step(selected_personalities, current_persona_idx, response_list, issue, model)
+
+
+    if five_steps_button:
+        for _ in range(5):
+            perform_step()
     if auto_approve and len(response_list) >= len(selected_personalities):
         sleep(1) 
         st.experimental_rerun()
