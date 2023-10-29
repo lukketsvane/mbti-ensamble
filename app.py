@@ -36,6 +36,7 @@ def get_persona_traits(filepath='persona_traits.json'):
 def chatbot(messages, model, temperature=0.8):
     openai_api_key = os.getenv("OPENAI_API_KEY")
     openai.api_key = openai_api_key
+
     response = openai.ChatCompletion.create(model=model, messages=messages, temperature=temperature)
     return response['choices'][0]['message']['content']
 
