@@ -6,7 +6,11 @@ import yaml
 from time import time
 import openai
 from time import sleep  # Import sleep from time module
+from dotenv import load_dotenv
 
+# Load .env file
+
+load_dotenv()
 
 def generate_summary(messages):
     return ' '.join(message['content'] for message in messages)
@@ -28,8 +32,10 @@ def get_persona_traits(filepath='persona_traits.json'):
     with open(filepath, 'r') as f:
         return json.load(f)['MBTI Personality Types']
 
+
 def chatbot(messages, model, temperature=0.8):
-    openai.api_key = "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"
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    openai.api_key = openai_api_key
     response = openai.ChatCompletion.create(model=model, messages=messages, temperature=temperature)
     return response['choices'][0]['message']['content']
 
