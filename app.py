@@ -2,7 +2,6 @@ import streamlit as st
 import os
 import json
 import yaml
-from time import time
 import openai
 from time import sleep  # Import sleep from time module
 from dotenv import load_dotenv
