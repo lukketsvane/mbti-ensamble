@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def generate_summary(messages):
-    return ' '.join(message['content'] for message in messages)
+    return ' '.join(messages)
 
 def generate_consensus_summary(messages, model):
     synthesized_policy = open_file('summary.txt')
@@ -139,11 +139,14 @@ def main():
         st.session_state.current_persona_idx = 1  # Next index to be processed
 
     if archive_button:
+        # Read system message from 'summary.txt'
+        system_message = open_file('summary.txt')
         # Generate summary
-        summary = generate_summary(response_list)
+        summary = generate_summary([system_message] + response_list)
         # Print the summary
         st.write(f"### Generated Summary:")
         st.write(summary)
+
 
     if step_button or (auto_approve and len(response_list) >= len(selected_personalities)):
         next_persona = selected_personalities[current_persona_idx % len(selected_personalities)]
